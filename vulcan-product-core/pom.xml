@@ -11,6 +11,13 @@
 	</parent>
 
 	<dependencies>
+
+		<dependency>
+			<artifactId>purchase-retail-protocol</artifactId>
+			<groupId>com.chunbo</groupId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.vulcan.common</groupId>
 			<artifactId>vulcan-common</artifactId>
