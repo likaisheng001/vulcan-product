@@ -22,7 +22,7 @@
 			<artifactId>elastic-job-lite-spring</artifactId>
 			<version>${elastic.job.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.vulcan.product.core</groupId>
 			<artifactId>vulcan-product-core</artifactId>
@@ -64,6 +64,20 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba.rocketmq</groupId>
+			<artifactId>rocketmq-client</artifactId>
+			<version>3.2.5</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.alibaba.rocketmq/rocketmq-all -->
+		<dependency>
+			<groupId>com.alibaba.rocketmq</groupId>
+			<artifactId>rocketmq-all</artifactId>
+			<version>3.2.6</version>
+			<type>pom</type>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>

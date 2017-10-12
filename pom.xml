@@ -15,9 +15,10 @@
 
 	<properties>
 		<elastic.job.version>2.0.5</elastic.job.version>
+		<id-generator-api>1.0.0</id-generator-api>
 	</properties>
 
-	<dependencyManagement>
+	<dependencies>
 		<dependency>
 			<groupId>com.vulcan.common</groupId>
 			<artifactId>vulcan-common</artifactId>
@@ -35,7 +36,41 @@
 			<artifactId>elastic-job-lite-spring</artifactId>
 			<version>${elastic.job.version}</version>
 		</dependency>
-	</dependencyManagement>
+
+		<dependency>
+			<groupId>com.chunbo</groupId>
+			<artifactId>id-generator-api-dto</artifactId>
+			<version>${id-generator-api}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.chunbo</groupId>
+			<artifactId>id-generator-api-protocol</artifactId>
+			<version>${id-generator-api}</version>
+		</dependency>
+
+		<!-- zookeeper config -->
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>3.4.10</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>slf4j-log4j12</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>log4j</artifactId>
+					<groupId>log4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>slf4j-api</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+	</dependencies>
 	<!-- 在父工程中配置模块，方便父工程管理模块 在对父工程操作时，会一同操作子工程：mvn clean；mvn install... 这种用法只适用于，子工程被建立在父工程内部，如果建立在父工程外部，部署时就会报找不到...的错误（大意是说，找不到子工程） 
 		感觉应该有相应的配置，即使子工程被放在父工程外部，也能让父工程管理起来 -此处暂省 -->
 	<modules>
