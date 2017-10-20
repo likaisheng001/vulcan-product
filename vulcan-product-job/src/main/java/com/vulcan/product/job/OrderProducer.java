@@ -5,12 +5,12 @@ import com.alibaba.rocketmq.client.producer.DefaultMQProducer;
 import com.alibaba.rocketmq.client.producer.SendResult;
 import com.alibaba.rocketmq.common.message.Message;
 
-public class Producer {
+public class OrderProducer {
     public static void main(String[] args) throws MQClientException {
         DefaultMQProducer producer = new DefaultMQProducer("testGroup");
-        producer.setNamesrvAddr("10.254.128.130:9876");
+        producer.setNamesrvAddr("101.200.37.71:9876");
         producer.setInstanceName("producer");
-//        producer.setRetryTimesWhenSendFailed(10);  //当发送失败的时候，重新发送10次
+        producer.setRetryTimesWhenSendFailed(10);  //当发送失败的时候，重新发送10次
         producer.start();
         try {
             for (int i = 0; i < 1; i++) {

@@ -1,4 +1,4 @@
-package com.vulcan.product.core.service.impl;
+package com.vulcan.product.core.test;
 
 import java.util.Map;
 

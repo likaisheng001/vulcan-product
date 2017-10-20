@@ -65,6 +65,7 @@
 			<artifactId>junit</artifactId>
 		</dependency>
 
+		<!-- rocketmq -->
 		<dependency>
 			<groupId>com.alibaba.rocketmq</groupId>
 			<artifactId>rocketmq-client</artifactId>
@@ -77,6 +78,13 @@
 			<version>3.2.6</version>
 			<type>pom</type>
 		</dependency>
+		<!-- 引入阿里的消息队列ons服务 -->
+		<dependency>
+			<groupId>com.aliyun.openservices</groupId>
+			<artifactId>ons-client</artifactId>
+			<version>1.2.7.Final</version>
+		</dependency>
+		
 
 	</dependencies>
 	<build>
