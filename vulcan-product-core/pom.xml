@@ -69,5 +69,6 @@
 			<groupId>com.101tec</groupId>
 			<artifactId>zkclient</artifactId>
 		</dependency>
+
 	</dependencies>
 </project>
