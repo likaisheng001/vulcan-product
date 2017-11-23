@@ -1,4 +1,4 @@
-package com.vulcan.product.core.test;
+package com.vulcan.product.core.test.base;
 
 import java.sql.Connection;
 import java.sql.Driver;

@@ -1,4 +1,4 @@
-package com.vulcan.product.core.test;
+package com.vulcan.product.core.test.base;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -8,12 +8,23 @@ import org.junit.Test;
 
 import com.chunbo.purchase.common.util.JSONUtil;
 import com.vulcan.common.client.HttpClientUtil;
+import com.vulcan.common.client.HttpResponse;
+import com.vulcan.common.client.HttpUtil;
 import com.vulcan.product.core.model.StockReceipt;
 import com.vulcan.product.core.model.StockResult;
 
-public class TestPushErp {
-	public static void main(String[] args) {
-		String url = "http://stock-ws.uat.chunbo.com/services/receiveStockReceipt/receiveStockReceipt";
+public class HttpUtilTest {
+	private String url = "http://stock-ws.uat.chunbo.com/services/receiveStockReceipt/receiveStockReceipt";
+	
+	@Test
+	public void utilTest(){
+		HttpUtil httpUtil = new HttpUtil();
+		String param = "{\"storeCode\":\"001\",\"customerStoreCode\":\"001\",\"batchSize\":\"1\",\"batchNo\":\"001\",\"items\":[{\"sku\":698150,\"customerStoreCode\":\"001\",\"itemName\":\"西湖龙井茶100g×2罐\",\"price1\":290.00}]}";
+		HttpResponse postJson = httpUtil.postJson("http://10.254.128.145:8080/shopweb/integration", param);
+	}
+	
+	@Test
+	public void pushErp(){
 		
 		HttpClientUtil client = HttpClientUtil.getInstance();
 //		StockReceipt receipt = new StockReceipt();
@@ -43,7 +54,13 @@ public class TestPushErp {
 	}
 	
 	@Test
-	public void test002(){
-		
+	public void getRequest(){
+		try {
+			HttpClientUtil instance = HttpClientUtil.getInstance();
+			String doGetForString = instance.doGetForString("http://localhost:8080/purchase-retail-server/rest/skuRetail/querySkuRetailInfo");
+			System.out.println(doGetForString);
+		} catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 }

@@ -1,8 +1,9 @@
-package com.vulcan.product.core.test;
+package com.vulcan.product.core.test.base;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.StringTokenizer;
 
 import org.junit.Test;
 
@@ -11,7 +12,8 @@ import org.junit.Test;
  * @author likaisheng
  *
  */
-public class DateAbjustTest {
+public class APITest {
+	
 	@Test
 	public void test002(){
 		Calendar now=Calendar.getInstance();
@@ -23,6 +25,7 @@ public class DateAbjustTest {
 		String format = sdf.format(time);
 		System.out.println(format);
 	}
+	
 	@Test
 	public void test003(){
 		String str = "2222#22222#4444";
@@ -30,5 +33,18 @@ public class DateAbjustTest {
 		for(String s : split ){
 			System.out.println(s);
 		}
+	}
+	
+	@Test
+	public void tokenerTest(){
+		
+		String str = new String("pId:17360410,skuId:1003500,price:34.1,saleableQnt:899|xxx:111");
+		StringTokenizer goods = new StringTokenizer(str, "|");
+		
+//		String nextToken = goods.nextToken();
+//		String xxx = goods.nextToken();
+		
+		Object nextElement = goods.nextElement();
+		Object xxx = goods.nextElement();
 	}
 }

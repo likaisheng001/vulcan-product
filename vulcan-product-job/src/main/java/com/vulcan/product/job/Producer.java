@@ -15,7 +15,7 @@ public class Producer {
         try {
             for (int i = 0; i < 1; i++) {
                 Thread.sleep(1000);  //每秒发送一次MQ
-                Message msg = new Message("TopicA-test","TAG",(new Date() + "Hello RocketMQ ,QuickStart" + i + "--测试--retryMaxTimes").getBytes());
+                Message msg = new Message("TopicA-test","TAG",(new Date() + "Hello RocketMQ ,QuickStart" + i + "--测试--retryMaxTimes -- 测试顺序").getBytes());
                 //设置消息的延迟级别
 //                msg.setDelayTimeLevel(3);
                 

@@ -1,4 +1,4 @@
-package com.vulcan.product.core.test;
+package com.vulcan.product.core.test.base;
 
  
 import org.I0Itec.zkclient.ZkClient;
