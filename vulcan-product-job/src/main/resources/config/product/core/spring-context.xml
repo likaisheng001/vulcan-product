@@ -22,4 +22,17 @@
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
    	<context:component-scan base-package="com.vulcan.product.core.service.*"/>
     
+    <!-- 配置redis -->
+    <bean id="redisCacheClient" class="com.chunbo.purchase.common.cache.RedisCacheClient">
+    	<property name="jedisPool">
+    		<bean class="com.chunbo.purchase.common.cache.RedisSentinelPoolBean">
+    			<property name="sentinels" value="${redis.sentinels}"></property>
+    			<property name="password" value="${redis.passwoed}"></property>
+    			<property name="masterName" value="${redis.masterName}"></property>
+    			<property name="dbIndex" value="${redis.dbIndex}"></property>
+    			<property name="timetOut" value="${redis.timetOut}"></property>
+    		</bean>
+    	</property>
+    </bean>
+    
 </beans>

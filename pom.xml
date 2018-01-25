@@ -69,7 +69,22 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>2.6.16</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>asm</artifactId>
+					<groupId>asm</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>2.6.16</version>
+		</dependency>
 	</dependencies>
 	<!-- 在父工程中配置模块，方便父工程管理模块 在对父工程操作时，会一同操作子工程：mvn clean；mvn install... 这种用法只适用于，子工程被建立在父工程内部，如果建立在父工程外部，部署时就会报找不到...的错误（大意是说，找不到子工程） 
 		感觉应该有相应的配置，即使子工程被放在父工程外部，也能让父工程管理起来 -此处暂省 -->

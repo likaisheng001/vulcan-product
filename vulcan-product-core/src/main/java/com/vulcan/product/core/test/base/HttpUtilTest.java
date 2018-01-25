@@ -2,12 +2,15 @@ package com.vulcan.product.core.test.base;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.http.client.ClientProtocolException;
 import org.junit.Test;
 
 import com.chunbo.purchase.common.util.JSONUtil;
 import com.vulcan.common.client.HttpClientUtil;
+import com.vulcan.common.client.HttpRequest;
 import com.vulcan.common.client.HttpResponse;
 import com.vulcan.common.client.HttpUtil;
 import com.vulcan.product.core.model.StockReceipt;
@@ -62,5 +65,21 @@ public class HttpUtilTest {
 		} catch(Exception e){
 			e.printStackTrace();
 		}
+	}
+	
+	@Test
+	public void xxx() throws ClientProtocolException, URISyntaxException, IOException{
+//		String sendPost = HttpRequest.sendPost("http://10.254.128.108:8081/services/skuStockCount", "[{\"skuId\":10034773,\"wareId\":36,\"saleType\":1}]");
+//		System.out.println(sendPost);
+//		HttpUtil httpUtil = new HttpUtil();
+//		HttpResponse postJson = httpUtil.postJson("http://10.254.128.108:8081/services/skuStockCount", "[{\"skuId\":10034773,\"wareId\":36,\"saleType\":1}]");
+//		System.out.println(JSONUtil.toJSON(postJson));
+		HttpClientUtil util = HttpClientUtil.getInstance();
+		String json = "[{\"id\":58156,\"chunbo_price\":100.00,\"sku_code\":\"1014349\",\"region_id\":\"320200\"}]";
+		Map<String, String> map = new HashMap<String, String>();
+		
+		map.put("data", json);
+		String result = util.doPostRetString("http://catalog1.uat.chunbo.com/ThirdPlat/updatePrice", null, map);
+		System.out.println(result);
 	}
 }
