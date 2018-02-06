@@ -1,5 +1,7 @@
 package com.vulcan.product.core.algorithms;
 
+import java.util.Stack;
+
 /**
  * 2018/1/25 算法库
  *
@@ -76,5 +78,59 @@ public class Algorithms {
             }
         }
         return result;
+    }
+
+    /**
+     * Dijkstra双栈算术表达式
+     * @param str 要计算的算术表达式字符串 该算法目前只支持未省略括号的算术表达式
+     * @return
+     */
+    public static double dijkstra(String str){
+        // Prepare
+        str = str.replace(" ",""); // 去掉表达式中的空格
+        String[] arr = str.split(""); // 将表达式打散
+        Stack<String> ops = new Stack<String>();
+        Stack<Double> vals = new Stack<Double>();
+
+        // 读取字符串，如果是运算符则压入栈
+        for (String s : arr) {
+            if (s.equals("")) { // 略去字符数组的第一个空字符
+                continue;
+            }
+
+            if (s.equals("(")) {
+
+            } else if (s.equals("+")) {
+                ops.push(s);
+            } else if (s.equals("-")) {
+                ops.push(s);
+            } else if (s.equals("*")) {
+                ops.push(s);
+            } else if (s.equals("/")) {
+                ops.push(s);
+            } else if (s.equals("sqrt")) {
+                ops.push(s);
+            } else if (s.equals(")")) {
+                // 如果字符为“）”，弹出运算符合操作数，计算结果并压入栈
+                String op = ops.pop();
+                double v = vals.pop();
+                if (op.equals("+")) {
+                    v = vals.pop() + v;
+                } else if (op.equals("-")) {
+                    v = vals.pop() - v;
+                } else if (op.equals("*")) {
+                    v = vals.pop() * v;
+                } else if (op.equals("/")) {
+                    v = vals.pop() / v;
+                } else if (op.equals("sqrt")) {
+                    v = Math.sqrt(v);
+                }
+                vals.push(v);
+            } else {
+                // 如果字符既非运算符也不是括号，将它作为double值压入栈
+                vals.push(Double.parseDouble(s));
+            }
+        }
+        return vals.pop();
     }
 }
